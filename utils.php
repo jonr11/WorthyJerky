@@ -1,13 +1,12 @@
 <?php
-/*
+
 // This is file will contain code necessary for multiple pages.  This includes...
 
+include 'confic.php';
+
 // Check if user logged out
-session_start(); 
 if(isset($_POST['logout'])) {
-    if (isset($_SESSION['user'])) {
-      unset($_SESSION['user']);
-    }
+    logout();
 }
 
 // Setting up server
@@ -21,6 +20,62 @@ if ($mysqli->errno) {
 // give the page access to all error processing functions
 include 'error.php';
 
+
+// LOGGING IN/OUT METHODS
+
+// Checking if a user is logged in
+function userLoggedIn()
+{
+if (isset($_SESSION['user'])) return true;
+return false;
+}
+
+// Checking if an administrator is logged in
+function adminLoggedIn()
+{
+if (isset($_SESSION['admin'])) return true;
+return false;
+}
+
+function username()
+{
+if (isset($_SESSION['admin']) | isset($_SESSION['user'])) 
+	return $_SESSION['username'];
+return "No one is logged in";
+}
+
+function setUsername($name)
+{
+	$_SESSION['username'] = $name;
+}
+
+function logAdminIn()
+{
+	$_SESSION['admin'] = true;
+}
+
+function logUserIn()
+{
+	$_SESSION['user'] = true;
+}
+
+function logout()
+{
+	if (isset($_SESSION['user'])) {
+      unset($_SESSION['user']);
+    }
+    if (isset($_SESSION['admin'])) {
+      unset($_SESSION['admin']);
+    }
+    if (isset($_SESSION['username'])) {
+      unset($_SESSION['username']);
+    }
+
+}
+
+
+
+/*
 // Adding a picture to the server
 function addPicture(file)
 {
@@ -58,20 +113,5 @@ $imageURL = "images/".$name;
 echo "<img src=$imageURL width=$width height=$height>";
 }
 
-// Checking if a user is logged in
-function userLoggedIn()
-{
-if (isset($_SESSION['user'])) return true;
-
-return false;
-}
-
-// Checking if an administrator is logged in
-function adminLoggedIn()
-{
-if (isset($_SESSION['admin'])) return true;
-
-return false;
-}
 */
 ?>

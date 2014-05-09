@@ -14,6 +14,8 @@
 // This file is split up into separate error functions for each page, so each page will call different validation methods
 
 // The following is pseduocode but follows the general format of how error checking will be handled
+
+/*
 function validateLogin(username, password)
     {
 
@@ -157,5 +159,5 @@ function validateCheckout(name, email, address)
       $data = htmlspecialchars($data);
       return $data;
     }
-
+*/
 ?>
