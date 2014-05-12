@@ -1,7 +1,7 @@
 <?
 session_start();
 // This will grant each page access to all of the utility and error processing functions
-require 'utils.php';
+include 'utils.php';
 ?>
 
 <!DOCTYPE html>
@@ -39,27 +39,18 @@ require 'utils.php';
 				<li class="nav"><a href="cart.php" class="nav">CART</a></li>
 
 				<?php 
-		            if ( ! isset( $_POST['username'] ) && ! isset( $_POST['password'] ) ) {
-
-		            	//TODO: clear the username and password global variables
+		            if ( userLoggedIn() || adminLoggedIn() ) {
+		            	//TODO: way for user to log out (form submit button?)
+		            	echo "<li class='nav'><a href='index.php' class='nav'>LOGOUT</a></li>";
+					} else {
+						echo "<li class='nav'><a href='login.php' class='nav'>LOGIN</a></li>";
+					} 
+	
+		            if (userLoggedIn() || adminLoggedIn() ) {
+		            	$name = username();
+						echo "<li class='nav'><a href='account.php' class='nav'>$name</a></li>";
+				 	} 
 				?>
-					<li class="nav"><a href="login.php" class="nav">LOGOUT</a></li>
-				<?php } ?>
-					
-				<?php
-				else{ 
-				?>
-
-				<li class="nav"><a href="login.php" class="nav">LOGIN</a></li>
-				<?php } ?>
-
-				<?php 
-		            if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
-
-		            	//TODO: clear the username and password global variables
-				?>
-					<li class="nav"><a href="login.php" class="nav">LOGOUT</a></li>
-				<?php } ?>
 			</ul>
 </form>
 		</nav>

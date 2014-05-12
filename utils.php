@@ -2,7 +2,7 @@
 
 // This is file will contain code necessary for multiple pages.  This includes...
 
-include 'confic.php';
+include 'config.php';
 
 // Check if user logged out
 if(isset($_POST['logout'])) {

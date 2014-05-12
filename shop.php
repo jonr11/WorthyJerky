@@ -46,19 +46,16 @@ require 'header.php';
 
 
 
-	<?php
-	/* if (adminLoggedIn() == true){
-
- 	// allow admin to add/remove products from the list
- 	// allow admin to update order quantity limit for each item
- 	// allow admin to update prices/descriptions/pictures for each item
-	
-	}
-
-	// check that the quantity requested is ok using validateOrderQuantity in utils
-
-	*/
-	?>
+		<?php 
+            // Only display forms if you haven't just submitted the form
+            if ( adminLoggedIn() ) {
+				echo
+				"<br />
+				<form action='shop.php' method='post'>
+					<input type='submit' name='teamSubmit' value='Add New'/>
+				</form>";
+			}
+		?>
 
 <?php
 require 'footer.php';
