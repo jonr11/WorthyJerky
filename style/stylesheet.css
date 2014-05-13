@@ -22,6 +22,23 @@ footer{
   max-width: 100%;
 }
 
+.jerkyImg{
+  width: 350px;
+  height: 250px;
+  float: left;
+
+}
+
+ul.productList{
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+li.product{
+
+
+}
+
 a.footer{
     
 }
@@ -79,8 +96,8 @@ ul.nav{
 	list-style-type: none;
 	background-color: black;
 	margin-top: 0px;
-	margin-left: .3em;
-	margin-right: .3em;
+	margin-left: .9em;
+	margin-right: .9em;
 	margin-bottom: .4em;
 	padding-left: 1em;
 	padding-right: 2em;
@@ -93,9 +110,9 @@ a.nav:link{
 	color: white;
 	margin-top: .0em;
 	margin-bottom: 10px;
-	padding: .325em;
-  padding-left: .5em;
-  padding-right: .5em;
+	padding: .125em;
+  padding-left: .8em;
+  padding-right: .8em;
 }
 
 a.nav:visited{
@@ -298,23 +315,35 @@ figcaption{
 }
 
 
+.error{
+  color: red;
+}
 
+.successful{
+  color: green;
+}
+
+.admin{
+  text-decoration: none;
+  margin-top: .0em;
+  margin-bottom: 10px;
+  padding: .325em;
+  padding-left: .5em;
+  padding-right: .5em;
+  color: orange;
+
+}
 
 /*login*/
 
-.col-md-8 {
-width: 50%;
-}
-
-
 .sign-in-up {
 border: 1px solid #ccc;
-margin-top: 59px;
-margin-right: 200px;
-margin-left: 200px;
+margin-right: auto;
+margin-left: auto;
 margin-bottom: 100px;
 padding: 55px;
-padding-bottom: 400px;
+//padding-bottom: 400px;
+width: 400px;
 }
 
 .row {
@@ -334,21 +363,15 @@ margin-right: -10px;
 
 
 .login{
-float: left;
-margin-left: 25px;
-
-}
-
-.register{
-  float: right;
-  padding-left: 10px;
-  margin-right: 5px;
+margin-right: auto;
+margin-left: auto;
 }
 
 .account_fields{
   text-decoration: none;
   list-style-type: none;
   margin-bottom: 15px;
+padding-right: 40px;
 }
 
 .form_control{

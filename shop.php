@@ -4,14 +4,13 @@ require 'header.php';
 <h1>SELECT ONE OF OUR UNIQUE JERKY FLAVORS</h1>
 <p>Choose which size package you would like to purchase.</p>
 
-
 <?php
 if (isset($_POST['editProduct'])) {
-		$product = test_input($_POST['product'];
-		$description = test_input($_POST['description'];
-		$price1 = test_input($_POST['price1'];
-		$price2 = test_input($_POST['price2'];
-		$price3 = test_input($_POST['price3'];
+		$product = test_input($_POST['product']);
+		$description = test_input($_POST['description']);
+		$price1 = test_input($_POST['price1']);
+		$price2 = test_input($_POST['price2']);
+		$price3 = test_input($_POST['price3']);
 		$errors = validateShopInputs($product, $description, $price1, $price2, $price3);
 
 		if (strlen($errors) == 0){
@@ -140,14 +139,14 @@ if (isset($_POST['editProduct'])) {
 					<p> Edit product info:
 					<form action='shop.php' method='post' >
 						<input type='hidden' name='pID' value='$pID'>
-						<ul>
+						<ul class='productList'>
 							<li>Name: <input type='text' name='product' value='$product'/> <br /> </li>
 							<li>Description: <input type='text' name='description' value='$description' height='100px' width = '400px'/> <br /> </li>
 							<li>Price Tier 1: <input type='text' name='price1' value='$price1'/> </li>
 							<li>Price Tier 2: <input type='text' name='price2' value='$price2'/> </li>
 							<li>Price Tier 3: <input type='text' name='price3' value='$price3'/> </li>
 							<li> <input type='checkbox' name='stocked' value='true' $checked> In Stock </li>
-							<li><input class='btn btn-default' type='submit' name='editProduct' value='CONFIRM'> </li>
+							<li><input class='btn btn-default' type='submit' name='editProduct' value='CONFIRM'> </li> <br /><br /><br />
 						</ul>
 					</form>
 				";

@@ -17,34 +17,34 @@ function validateLoginInputs($username, $password)
 {
 
     // Create validation tracking variables
-    var valid = true;
-    var validationMessage = 'Please correct the following errors:\r\n';
+    $valid = true;
+    $validationMessage = 'Please correct the following errors: ';
 
     // Validate username
     if (strlen($username) == 0)
     {
-        validationMessage = validationMessage + ' the username is missing\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the username is missing,';
+        $valid = false;
     }
     elseif (strlen($username) > 40){
-        validationMessage = validationMessage + ' the username cannot be longer than 40 characters\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the username cannot be longer than 40 characters,';
+        $valid = false;
     }
     
     // Validate password
     if (strlen($password) == 0)
     {
-        validationMessage = validationMessage + ' password is missing\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the password is missing,';
+        $valid = false;
     }
     elseif (strlen($password) > 40){
-        validationMessage = validationMessage + ' the password cannot be longer than 40 characters\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the password cannot be longer than 40 characters,';
+        $valid = false;
     }
 
-    if (valid == false)
+    if ($valid == false)
     {
-        return validationMessage;
+        return $validationMessage;
     }
 
     return "";
@@ -54,64 +54,64 @@ function validateShopInputs($product, $description, $price1, $price2, $price3)
 {
 
     // Create validation tracking variables
-    var valid = true;
-    var validationMessage = 'Please correct the following errors:\r\n';
+    $valid = true;
+    $validationMessage = 'Please correct the following errors: ';
 
     // Validate product
     if (strlen($product) == 0)
     {
-        validationMessage = validationMessage + ' the product name is missing\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the product name is missing,';
+        $valid = false;
     }
     elseif (strlen($product) > 100){
-        validationMessage = validationMessage + ' the product name cannot be longer than 100 characters\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the product name cannot be longer than 100 characters,';
+        $valid = false;
     }
     
     // Validate description
     if (strlen($description) == 0)
     {
-        validationMessage = validationMessage + ' the product description is missing\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the product description is missing,';
+        $valid = false;
     }
     elseif (strlen($description) > 500){
-        validationMessage = validationMessage + ' the product description cannot be longer than 500 characters\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the product description cannot be longer than 500 characters,';
+        $valid = false;
     }
 
     // Validate price tiers
     if (strlen($price1) == 0)
     {
-        validationMessage = validationMessage + ' the price1 field is missing\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the price1 field is missing,';
+        $valid = false;
     }
     elseif (isCurrency($price1) == false){
-        validationMessage = validationMessage + ' prices must use a valid dollar amount \r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' prices must use a valid dollar amount,';
+        $valid = false;
     }
     if (strlen($price2) == 0)
     {
-        validationMessage = validationMessage + ' the price2 field is missing\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the price2 field is missing,';
+        $valid = false;
     }
     elseif (isCurrency($price2) == false){
-        validationMessage = validationMessage + ' prices must use a valid dollar amount \r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' prices must use a valid dollar amount,';
+        $valid = false;
     }
     if (strlen($price3) == 0)
     {
-        validationMessage = validationMessage + ' the price2 field is missing\r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' the price2 field is missing,';
+        $valid = false;
     }
     elseif (isCurrency($price3) == false){
-        validationMessage = validationMessage + ' prices must use a valid dollar amount \r\n';
-        valid = false;
+        $validationMessage = $validationMessage.' prices must use a valid dollar amount,';
+        $valid = false;
     }
 
 
-    if (valid == false)
+    if ($valid == false)
     {
-        return validationMessage;
+        return $validationMessage;
     }
 
     return "";
