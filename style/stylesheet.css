@@ -17,13 +17,13 @@ nav{
 
 .footer{
   background-color: black;
-  margin-bottom: 0;
+  margin-bottom: 0%;
   width: 100%;
-  max-width: 100%;
+  
 }
 
 a.footer{
-  margin-bottom: 50px;
+    
 }
 
 a.footer:link{
@@ -49,11 +49,10 @@ a.footer:active{
 ul.footer{
   list-style-type: none;
   background-color: black;
-  position: relative;
   margin-bottom: 0;
   position: absolute;
   min-height: 150px;
-  width: 100%;
+  width: 99%;
 }
 
 li.footer{
@@ -63,42 +62,42 @@ li.footer{
 
 .footer_text{
   width: 235px;
-text-align: left;
+  text-align: left;
 }
 
 li.nav{
 	display: inline;
 	color: white;
-	font-size: 32px;
+	font-size: 1.4em;
 }
 
 .cart{
 
-  padding-top: 10px;
-  padding-left: 10px;
+  padding-top: 1em;
+  padding-left: 1em;
 }
 
 ul.nav{
 	list-style-type: none;
 	background-color: black;
 	margin-top: 0px;
-	margin-left: 8px;
-	margin-right: 8px;
-	margin-bottom: 8px;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 0px;
+	margin-left: .3em;
+	margin-right: .3em;
+	margin-bottom: .4em;
+	padding-left: 1em;
+	padding-right: 2em;
+	padding-top: .8em;
 	padding-bottom: 10px;
 }
 
 a.nav:link{
 	text-decoration: none;
 	color: white;
-	margin-top: 50px;
+	margin-top: .0em;
 	margin-bottom: 10px;
-	padding: 8px;
-  padding-left: 15px;
-  padding-right: 15px;
+	padding: .325em;
+  padding-left: .5em;
+  padding-right: .5em;
 }
 
 a.nav:visited{
@@ -211,20 +210,19 @@ td{
 }
 
 a.td{
-text-decoration: none;
+    text-decoration: none;
 }
 
 .WJLOGO{
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 13.5em;
+    max-height: 13.5em;
     width:35%;
     -moz-border-radius: 50%; 
     -webkit-border-radius: 50%; 
     border-radius: 50%;
     position: relative;
-    top:-150px;
-    bottom: 50px;
-    //max-height: 325px;
+    top:-6em;
+    bottom: -6em;
 }
 
 .body_adjust{
@@ -239,7 +237,8 @@ text-decoration: none;
     position: relative;
     display: block;
     overflow: hidden;
-    max-height: 325px;
+    /*max-height: 325px;*/
+    height:15em;
     margin: 0px;
     
   
