@@ -13,143 +13,114 @@
 
 // This file is split up into separate error functions for each page, so each page will call different validation methods
 
-// The following is pseduocode but follows the general format of how error checking will be handled
+function validateLoginInputs($username, $password)
+{
 
-/*
-function validateLogin(username, password)
+    // Create validation tracking variables
+    var valid = true;
+    var validationMessage = 'Please correct the following errors:\r\n';
+
+    // Validate username
+    if (strlen($username) == 0)
     {
+        validationMessage = validationMessage + ' the username is missing\r\n';
+        valid = false;
+    }
+    elseif (strlen($username) > 40){
+        validationMessage = validationMessage + ' the username cannot be longer than 40 characters\r\n';
+        valid = false;
+    }
+    
+    // Validate password
+    if (strlen($password) == 0)
+    {
+        validationMessage = validationMessage + ' password is missing\r\n';
+        valid = false;
+    }
+    elseif (strlen($password) > 40){
+        validationMessage = validationMessage + ' the password cannot be longer than 40 characters\r\n';
+        valid = false;
+    }
 
-        // Create validation tracking variables
-        var valid = true;
-        var validationMessage = 'Please correct the following errors:\r\n';
+    if (valid == false)
+    {
+        return validationMessage;
+    }
 
-        // Validate username
-        if (usernamelength == 0)
-        {
-            validationMessage = validationMessage + ' the username is missing\r\n';
-            valid = false;
-        }
-        
-        // Validate password
-        if (passwordlength == 0)
-        {
-            validationMessage = validationMessage + ' password is missing\r\n';
-            valid = false;
-        }
-
-		// For now display alert box with errors if any errors found.  Later on we'll make this display nicer on the page
-        if (valid == false)
-        {
-            alert(validationMessage);
-        }
-
-        return valid;
+    return "";
  }
 
-function validateCreateAccount(username, password, email)
+function validateShopInputs($product, $description, $price1, $price2, $price3)
+{
+
+    // Create validation tracking variables
+    var valid = true;
+    var validationMessage = 'Please correct the following errors:\r\n';
+
+    // Validate product
+    if (strlen($product) == 0)
     {
+        validationMessage = validationMessage + ' the product name is missing\r\n';
+        valid = false;
+    }
+    elseif (strlen($product) > 100){
+        validationMessage = validationMessage + ' the product name cannot be longer than 100 characters\r\n';
+        valid = false;
+    }
+    
+    // Validate description
+    if (strlen($description) == 0)
+    {
+        validationMessage = validationMessage + ' the product description is missing\r\n';
+        valid = false;
+    }
+    elseif (strlen($description) > 500){
+        validationMessage = validationMessage + ' the product description cannot be longer than 500 characters\r\n';
+        valid = false;
+    }
 
-        // Create validation tracking variables
-        var valid = true;
-        var validationMessage = 'Please correct the following errors:\r\n';
+    // Validate price tiers
+    if (strlen($price1) == 0)
+    {
+        validationMessage = validationMessage + ' the price1 field is missing\r\n';
+        valid = false;
+    }
+    elseif (isCurrency($price1) == false){
+        validationMessage = validationMessage + ' prices must use a valid dollar amount \r\n';
+        valid = false;
+    }
+    if (strlen($price2) == 0)
+    {
+        validationMessage = validationMessage + ' the price2 field is missing\r\n';
+        valid = false;
+    }
+    elseif (isCurrency($price2) == false){
+        validationMessage = validationMessage + ' prices must use a valid dollar amount \r\n';
+        valid = false;
+    }
+    if (strlen($price3) == 0)
+    {
+        validationMessage = validationMessage + ' the price2 field is missing\r\n';
+        valid = false;
+    }
+    elseif (isCurrency($price3) == false){
+        validationMessage = validationMessage + ' prices must use a valid dollar amount \r\n';
+        valid = false;
+    }
 
-        // Validate username
-        if (usernamelength == 0)
-        {
-            validationMessage = validationMessage + ' the username is missing\r\n';
-            valid = false;
-        }
-        
-        // Validate password
-        if (passwordlength == 0)
-        {
-            validationMessage = validationMessage + ' password is missing\r\n';
-            valid = false;
-        }
 
-        // Validate email
-        if (emaillength == 0)
-        {
-            validationMessage = validationMessage + ' email is missing\r\n';
-            valid = false;
-        }
+    if (valid == false)
+    {
+        return validationMessage;
+    }
 
-		// For now display alert box with errors if any errors found.  Later on we'll make this display nicer on the page
-        if (valid == false)
-        {
-            alert(validationMessage);
-        }
-
-        return valid;
+    return "";
  }
 
- function validateOrderQuantity(quantity)
-    {
-
-        // Create validation tracking variables
-        var valid = true;
-        var validationMessage = 'Please correct the following errors:\r\n';
-
-        // Validate quantity
-        if (quantitylength == 0)
-        {
-            validationMessage = validationMessage + ' the username is missing\r\n';
-            valid = false;
-        }
-        
-        // Make sure the quantity is a whole number between 1 and upper limit determined by client
-        if (quantity not in range)
-        {
-            validationMessage = validationMessage + ' the quantity must be between 1 and [upper limit] \r\n';
-            valid = false;
-        }
-
-		// For now display alert box with errors if any errors found.  Later on we'll make this display nicer on the page
-        if (valid == false)
-        {
-            alert(validationMessage);
-        }
-
-        return valid;
- }
-
-function validateCheckout(name, email, address)
-    {
-
-        // Create validation tracking variables
-        var valid = true;
-        var validationMessage = 'Please correct the following errors:\r\n';
-
-        // Validate name
-        if (namelength == 0)
-        {
-            validationMessage = validationMessage + ' the name is missing\r\n';
-            valid = false;
-        }
-        
-        // Validate email
-        if (emaillength == 0)
-        {
-            validationMessage = validationMessage + ' the email is missing\r\n';
-            valid = false;
-        }
-
-        // Validate address
-        if (addresslength == 0)
-        {
-            validationMessage = validationMessage + ' the address is missing\r\n';
-            valid = false;
-        }
-
-		// For now display alert box with errors if any errors found.  Later on we'll make this display nicer on the page
-        if (valid == false)
-        {
-            alert(validationMessage);
-        }
-
-        return valid;
- }
-
+function isCurrency($number)
+{
+  return preg_match("/^-?[0-9]+(?:\.[0-9]{1,2})?$/", $number);
+}
 
 // Sanitizing input to the validation functions
   function test_input($data)
@@ -159,5 +130,5 @@ function validateCheckout(name, email, address)
       $data = htmlspecialchars($data);
       return $data;
     }
-*/
+
 ?>

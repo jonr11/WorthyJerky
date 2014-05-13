@@ -24,7 +24,7 @@ include 'utils.php';
 			<ul class="nav">
 				<li class="nav"><a href="index.php" class="nav">HOME</a></li>
 				<li class="nav"><a href="jerky.php" class="nav">THE JERKY</a></li>
-				<li class="nav"><a href="about.php" class="nav">ABOUT US</a></li>
+				<li class="nav"><a href="about.php" class="nav">THE TEAM</a></li>
 				<li class="nav"><a href="shop.php" class="nav">SHOP</a></li>
 				<li class="nav">|  </li>
 				<li class="nav">
@@ -39,17 +39,9 @@ include 'utils.php';
 				<li class="nav"><a href="cart.php" class="nav">CART</a></li>
 
 				<?php 
-		            if ( userLoggedIn() || adminLoggedIn() ) {
-		            	//TODO: way for user to log out (form submit button?)
-		            	echo "<li class='nav'><a href='index.php' class='nav'>LOGOUT</a></li>";
-					} else {
-						echo "<li class='nav'><a href='login.php' class='nav'>LOGIN</a></li>";
+		            if (adminLoggedIn()) {
+						echo "<li class='nav'><a href='login.php' class='nav' class='admin'>ADMIN MODE</a></li>";
 					} 
-	
-		            if (userLoggedIn() || adminLoggedIn() ) {
-		            	$name = username();
-						echo "<li class='nav'><a href='account.php' class='nav'>$name</a></li>";
-				 	} 
 				?>
 			</ul>
 </form>
